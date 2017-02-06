@@ -15,7 +15,15 @@ A Simplified HTTP request client.
 $ sbt clean publish-local
 ```
 
-#### Run the tests
+#### Running the tests
+
+Before running the tests the first time, you must ensure the npm packages are installed:
+
+```bash
+$ npm install
+```
+
+Then you can run the tests:
 
 ```bash
 $ sbt test
