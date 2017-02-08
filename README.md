@@ -34,21 +34,29 @@ $ sbt test
 `Request` can perform HTTP requests via callbacks:
 
 ```scala
-  Request("http://www.google.com", (error: String, response: ServerResponse, body: String) => {
-    assert(error == null)
-    assert(response.statusCode == 200)
-  })
+import io.scalajs.JSON
+import io.scalajs.nodejs.Assert
+import io.scalajs.npm.request._
+
+Request("http://www.google.com", { (error, response, body) => 
+    Assert.equal(error, null, JSON.stringify(error))
+    Assert.equal(response.statusCode, 200, response.statusMessage)
+})
 ```
 
 `Request` can perform streaming HTTP requests:
 
 ```scala
-  Request
+import io.scalajs.nodejs.Assert
+import io.scalajs.nodejs.http.IncomingMessage
+import io.scalajs.npm.request._
+
+Request
     .get("http://google.com/img.png")
-    .on("response", (response: ServerResponse) => {
-      assert(response.statusCode == 200)
-      assert(response.headers.get("content-type").contains("image/png"))
-    })
+    .onResponse { response  => 
+        Assert.equal(response.statusCode, 200, response.statusMessage)
+        Assert.equal(response.headers.get("content-type").orNull, "image/png", response.headers.get("content-type").orNull)
+    }
     .pipe(Request.put("http://mysite.com/img.png"))
 ```
 
@@ -57,7 +65,7 @@ $ sbt test
 To add the Request binding to your project, add the following to your build.sbt:  
 
 ```sbt
-libraryDependencies += "io.scalajs.npm" %%% "request" % "0.3.0.3"
+libraryDependencies += "io.scalajs.npm" %%% "request" % "0.3.0.4"
 ```
 
 Optionally, you may add the Sonatype Repository resolver:
