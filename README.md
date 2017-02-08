@@ -65,7 +65,7 @@ Request
 To add the Request binding to your project, add the following to your build.sbt:  
 
 ```sbt
-libraryDependencies += "io.scalajs.npm" %%% "request" % "0.3.0.4"
+libraryDependencies += "io.scalajs.npm" %%% "request" % "2.79.0"
 ```
 
 Optionally, you may add the Sonatype Repository resolver:
