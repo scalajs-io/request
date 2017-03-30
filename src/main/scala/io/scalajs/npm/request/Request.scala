@@ -40,6 +40,13 @@ trait Request extends IEventEmitter {
   def defaults(options: RequestOptions | RawOptions): this.type = js.native
 
   /**
+    * Same as Request(), but defaults to method: "DELETE".
+    * @param options  the given [[RequestOptions request options]]
+    * @param callback the callback function
+    */
+  def del(options: RequestOptions | RawOptions, callback: RequestCallBack): Unit = js.native
+
+  /**
     * Same as request(), but defaults to method: "DELETE".
     * @param url the requested URL
     * @return a [[Readable readable]]
@@ -52,6 +59,13 @@ trait Request extends IEventEmitter {
     * @param callback the callback function
     */
   def del(url: String, callback: RequestCallBack): Unit = js.native
+
+  /**
+    * Same as Request(), but defaults to method: "DELETE".
+    * @param options  the given [[RequestOptions request options]]
+    * @param callback the callback function
+    */
+  def delete(options: RequestOptions | RawOptions, callback: RequestCallBack): Unit = js.native
 
   /**
     * Same as request(), but defaults to method: "DELETE".
@@ -67,11 +81,22 @@ trait Request extends IEventEmitter {
     */
   def delete(url: String, callback: RequestCallBack): Unit = js.native
 
-  def get(form: RequestOptions | MultipartForm | RawOptions): Readable = js.native
+  def form(values: RawOptions): this.type = js.native
+
+  def get(options: RequestOptions | MultipartForm | RawOptions, callback: RequestCallBack): Unit = js.native
+
+  def get(options: RequestOptions | MultipartForm | RawOptions): Readable = js.native
 
   def get(url: String): Readable = js.native
 
   def get(url: String, callback: RequestCallBack): Unit = js.native
+
+  /**
+    * Same as Request(), but defaults to method: "HEAD".
+    * @param options  the given [[RequestOptions request options]]
+    * @param callback the callback function
+    */
+  def head(options: RequestOptions | RawOptions, callback: RequestCallBack): Unit = js.native
 
   /**
     * Same as request(), but defaults to method: "HEAD".
@@ -93,6 +118,13 @@ trait Request extends IEventEmitter {
     * @return a [[CookieJar]]
     */
   def jar(cookieStore: CookieStore = js.native): CookieJar = js.native
+
+  /**
+    * Same as Request(), but defaults to method: "PATCH".
+    * @param options  the given [[RequestOptions request options]]
+    * @param callback the callback function
+    */
+  def patch(options: RequestOptions | RawOptions, callback: RequestCallBack): Unit = js.native
 
   /**
     * Same as Request(), but defaults to method: "PATCH".
@@ -128,6 +160,21 @@ trait Request extends IEventEmitter {
     * @return
     */
   def post(url: String, callback: RequestCallBack): Unit = js.native
+
+  /**
+    * Use Request as a Writable stream to easily POST Readable streams (like files, other HTTP requests, or otherwise).
+    * @param url      the requested URL
+    * @param options  the given [[RequestOptions request options]]
+    * @param callback the callback -> (error, response, body)
+    */
+  def post(url: String, options: RequestOptions | RawOptions, callback: RequestCallBack): Unit = js.native
+
+  /**
+    * Same as Request(), but defaults to method: "PUT".
+    * @param options  the given [[RequestOptions request options]]
+    * @param callback the callback function
+    */
+  def put(options: RequestOptions | RawOptions, callback: RequestCallBack): Unit = js.native
 
   /**
     * Same as Request(), but defaults to method: "PUT".
