@@ -15,7 +15,7 @@ import scala.scalajs.js.|
   */
 package object request {
 
-  type RequestBody = js.Any
+  type RequestBody = String
 
   type RequestCallBack = js.Function3[RequestError, IncomingMessage, RequestBody, Any]
 
