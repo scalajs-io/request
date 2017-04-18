@@ -35,7 +35,7 @@ class RequestTest extends FunSpec {
     }
 
     it("should create cookie jars") {
-      val url = "http://scalajs.io"
+      val url = "http://scalajs-io"
       val cookieJar = Request.jar()
       cookieJar.setCookie(Request.cookie("key1=value1"), url)
       info(s"cookie string: ${cookieJar.getCookieString(url)}")

@@ -1,6 +1,6 @@
 {
   "name": "request-sjs",
-  "version": "0.4.0-pre3",
+  "version": "0.4.0-pre4",
   "private": true,
   "dependencies": {
     "request": "^2.79.0",
