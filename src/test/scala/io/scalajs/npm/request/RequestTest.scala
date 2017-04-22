@@ -4,6 +4,8 @@ import io.scalajs.JSON
 import io.scalajs.nodejs.Assert
 import org.scalatest.FunSpec
 
+import scala.scalajs.js.JSConverters._
+
 /**
   * Request Tests
   * @author lawrence.daniels@gmail.com
@@ -24,7 +26,7 @@ class RequestTest extends FunSpec {
         .get("http://apache.org/img/asf_logo.png")
         .onResponse { response =>
           Assert.equal(response.statusCode, 200, response.statusMessage)
-          Assert.equal(response.headers.get("content-type").orNull, "image/png", response.headers.get("content-type").orNull)
+          Assert.equal(response.headers.get("content-type").orUndefined, "image/png", "Content type was not 'image/png'")
         }
         .pipe(Request.put("http://mysite.com/img.png"))
     }

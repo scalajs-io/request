@@ -5,7 +5,7 @@ import io.scalajs.nodejs.http.IncomingMessage
 import io.scalajs.nodejs.{SystemError, stream}
 import io.scalajs.util.PromiseHelper._
 
-import scala.concurrent.Promise
+import scala.concurrent.Future
 import scala.scalajs.js
 import scala.scalajs.js.|
 
@@ -15,7 +15,7 @@ import scala.scalajs.js.|
   */
 package object request {
 
-  type RequestBody = String
+  type RequestBody = js.Any
 
   type RequestCallBack = js.Function3[RequestError, IncomingMessage, RequestBody, Any]
 
@@ -28,67 +28,67 @@ package object request {
   implicit class RequestExtensions(val client: Request) extends AnyVal {
 
     @inline
-    def deleteAsync(options: RequestOptions | RawOptions): Promise[(IncomingMessage, RequestBody)] = {
+    def deleteFuture(options: RequestOptions | RawOptions): Future[(IncomingMessage, RequestBody)] = {
       promiseWithError2[RequestError, IncomingMessage, RequestBody](client.del(options, _))
     }
 
     @inline
-    def deleteAsync(url: String): Promise[(IncomingMessage, RequestBody)] = {
+    def deleteFuture(url: String): Future[(IncomingMessage, RequestBody)] = {
       promiseWithError2[RequestError, IncomingMessage, RequestBody](client.del(url, _))
     }
 
     @inline
-    def getAsync(options: RequestOptions | RawOptions): Promise[(IncomingMessage, RequestBody)] = {
+    def getFuture(options: RequestOptions | RawOptions): Future[(IncomingMessage, RequestBody)] = {
       promiseWithError2[RequestError, IncomingMessage, RequestBody](client.get(options, _))
     }
 
     @inline
-    def getAsync(url: String): Promise[(IncomingMessage, RequestBody)] = {
+    def getFuture(url: String): Future[(IncomingMessage, RequestBody)] = {
       promiseWithError2[RequestError, IncomingMessage, RequestBody](client.get(url, _))
     }
 
     @inline
-    def headAsync(options: RequestOptions | RawOptions): Promise[(IncomingMessage, RequestBody)] = {
+    def headFuture(options: RequestOptions | RawOptions): Future[(IncomingMessage, RequestBody)] = {
       promiseWithError2[RequestError, IncomingMessage, RequestBody](client.head(options, _))
     }
 
     @inline
-    def headAsync(url: String): Promise[(IncomingMessage, RequestBody)] = {
+    def headFuture(url: String): Future[(IncomingMessage, RequestBody)] = {
       promiseWithError2[RequestError, IncomingMessage, RequestBody](client.head(url, _))
     }
 
     @inline
-    def patchAsync(options: RequestOptions | RawOptions): Promise[(IncomingMessage, RequestBody)] = {
+    def patchFuture(options: RequestOptions | RawOptions): Future[(IncomingMessage, RequestBody)] = {
       promiseWithError2[RequestError, IncomingMessage, RequestBody](client.patch(options, _))
     }
 
     @inline
-    def patchAsync(url: String): Promise[(IncomingMessage, RequestBody)] = {
+    def patchFuture(url: String): Future[(IncomingMessage, RequestBody)] = {
       promiseWithError2[RequestError, IncomingMessage, RequestBody](client.patch(url, _))
     }
 
     @inline
-    def postAsync(options: RequestOptions | RawOptions): Promise[(IncomingMessage, RequestBody)] = {
+    def postFuture(options: RequestOptions | RawOptions): Future[(IncomingMessage, RequestBody)] = {
       promiseWithError2[RequestError, IncomingMessage, RequestBody](client.post(options, _))
     }
 
     @inline
-    def postAsync(url: String): Promise[(IncomingMessage, RequestBody)] = {
+    def postFuture(url: String): Future[(IncomingMessage, RequestBody)] = {
       promiseWithError2[RequestError, IncomingMessage, RequestBody](client.post(url, _))
     }
 
     @inline
-    def postAsync(url: String, options: RequestOptions | RawOptions): Promise[(IncomingMessage, RequestBody)] = {
+    def postFuture(url: String, options: RequestOptions | RawOptions): Future[(IncomingMessage, RequestBody)] = {
       promiseWithError2[RequestError, IncomingMessage, RequestBody](client.post(url, options, _))
     }
 
     @inline
-    def putAsync(options: RequestOptions | RawOptions): Promise[(IncomingMessage, RequestBody)] = {
+    def putFuture(options: RequestOptions | RawOptions): Future[(IncomingMessage, RequestBody)] = {
       promiseWithError2[RequestError, IncomingMessage, RequestBody](client.put(options, _))
     }
 
     @inline
-    def putAsync(url: String): Promise[(IncomingMessage, RequestBody)] = {
+    def putFuture(url: String): Future[(IncomingMessage, RequestBody)] = {
       promiseWithError2[RequestError, IncomingMessage, RequestBody](client.put(url, _))
     }
 
