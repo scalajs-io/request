@@ -1,10 +1,10 @@
 {
   "name": "request-sjs",
-  "version": "0.4.0-pre5",
+  "version": "0.4.0",
   "private": true,
   "dependencies": {
     "request": "^2.79.0",
-    "source-map": "^0.5.6",
+    "source-map-support": "^0.4.14",
     "tough-cookie": "^2.3.2"
   }
 }
