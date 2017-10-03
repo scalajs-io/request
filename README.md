@@ -10,7 +10,7 @@ It supports HTTPS and follows redirects by default.
 ### Build Dependencies
 
 
-* [SBT v0.13.13](http://www.scala-sbt.org/download.html)
+* [SBT v0.13.16](http://www.scala-sbt.org/download.html)
 
 ### Build/publish the SDK locally
 
@@ -68,7 +68,7 @@ Request
 To add the `Request` binding to your project, add the following to your build.sbt:  
 
 ```sbt
-libraryDependencies += "io.scalajs.npm" %%% "request" % "0.4.0"
+libraryDependencies += "io.scalajs.npm" %%% "request" % "0.4.1"
 ```
 
 Optionally, you may add the Sonatype Repository resolver:
