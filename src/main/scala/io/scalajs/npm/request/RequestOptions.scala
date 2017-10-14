@@ -4,14 +4,12 @@ import io.scalajs.nodejs.buffer.Buffer
 import io.scalajs.npm.toughcookie.CookieJar
 
 import scala.scalajs.js
-import scala.scalajs.js.annotation.ScalaJSDefined
 import scala.scalajs.js.|
 
 /**
   * Request Options
   * @author lawrence.daniels@gmail.com
   */
-@ScalaJSDefined
 class RequestOptions(var url: js.UndefOr[String] = js.undefined,
                      var uri: js.UndefOr[String] = js.undefined,
                      var json: js.UndefOr[js.Any] = js.undefined,
